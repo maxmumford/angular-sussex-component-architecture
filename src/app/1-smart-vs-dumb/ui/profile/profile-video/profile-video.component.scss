@@ -1,10 +1,13 @@
-// complex styling encapsulated into single resposibility component
 :host {
+  display: block;
+}
+
+// complex styling encapsulated into single resposibility component
+.video-block {
   display: block;
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
-  max-width: 1024px;
   margin: 32px auto;
 
   iframe {

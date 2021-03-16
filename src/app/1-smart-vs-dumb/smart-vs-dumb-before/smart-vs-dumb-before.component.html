@@ -14,9 +14,11 @@
     </div>
 
     <div class="video-block">
-        <iframe width="1280" height="720" [src]="youtubeUrl" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+        <div class="video-wrapper">
+            <iframe width="1280" height="720" [src]="youtubeUrl" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
     </div>
 
     <!-- text-block HTML repeated several times; relies on shared css. Not reusable. -->
@@ -34,7 +36,7 @@
         </p>
     </div>
 
-    <!-- breaking single responsibility - team carousel is a separate concer, could become complex -->
+    <!-- breaking single responsibility - team grid is a separate concer, could become complex -->
     <div class="team">
         <div *ngFor="let team of company.teamMembers" class="member">
             <img [src]="team.imageUrl">

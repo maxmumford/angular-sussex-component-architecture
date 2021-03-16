@@ -19,7 +19,7 @@ export class BlackBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // smart component maps data for dumb components - this data could be coming from an API and mapped to the correct format
+  // smart component maps data for dumb components to keep it decoupled
   private getAccordionItems(): ItemVM[] {
     return [
       {

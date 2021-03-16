@@ -1,17 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile-video',
   templateUrl: './profile-video.component.html',
   styleUrls: ['./profile-video.component.scss']
 })
-export class ProfileVideoComponent implements OnInit {
+export class ProfileVideoComponent implements OnChanges {
 
   @Input() src: string;
 
-  constructor() { }
+  srcSafe: SafeResourceUrl;
 
-  ngOnInit(): void {
+  constructor(private sanitizer: DomSanitizer) { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.srcSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.src);
   }
 
 }

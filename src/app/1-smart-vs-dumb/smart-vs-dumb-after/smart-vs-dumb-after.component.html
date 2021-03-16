@@ -6,23 +6,23 @@
 
     <!-- no repeated HTML -->
     <app-profile-text-block heading="About Us" class="about-us">
-        {{ company.aboutUs }}
+        <p>{{ company.aboutUs }}</p>
     </app-profile-text-block>
 
-    <app-profile-video [src]="videoUrlSafe"></app-profile-video>
+    <app-profile-video [src]="company.videoUrl"></app-profile-video>
 
     <!-- minimal repitition to re-use block -->
     <app-profile-text-block heading="Our Features" class="features">
-        {{ company.features }}
+        <p>{{ company.features }}</p>
     </app-profile-text-block>
 
     <app-profile-text-block heading="Market" class="market">
-        {{ company.market }}
+        <p>{{ company.market }}</p>
     </app-profile-text-block>
 
-    <!-- breaking single responsibility - team carousel is a separate concer, could become complex -->
+    <!-- complexity is abstracted away via single responsibility -->
     <app-profile-image-grid>
-        <app-profile-image-grid-item *ngFor="let person of company.teamMembers" [label]="person.name" 
+        <app-profile-image-grid-item *ngFor="let person of company.teamMembers" [label]="person.name"
             [imageUrl]="person.imageUrl"></app-profile-image-grid-item>
     </app-profile-image-grid>
 
