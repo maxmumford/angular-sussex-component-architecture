@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { CompanyService } from '../company/company.service';
+import { Company } from '../company/company.types';
 
 @Component({
   selector: 'app-smart-vs-dumb-after',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmartVsDumbAfterComponent implements OnInit {
 
-  constructor() { }
+  company: Company | undefined;
+
+  constructor(private companyService: CompanyService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.companyService.getCompany().subscribe(company => {
+      this.company = {
+        ...company,
+        youtubeUrl: this.sanitizer.bypassSecurityTrustResourceUrl(company.youtubeUrl),
+      };
+    });
   }
 
 }

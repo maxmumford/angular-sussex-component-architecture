@@ -1,0 +1,17 @@
+nav {
+    background-color: #1b1b1b;
+
+    a {
+        display: inline-block;
+        line-height: 20px;
+        margin-right: 24px;
+        color: white;
+        text-decoration: none;
+        transition: background-color 250ms;
+        padding: 20px 16px;
+
+        &:hover {
+            background-color: #333;
+        }
+    }
+}

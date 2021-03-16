@@ -1,1 +1,47 @@
-<p>smart-vs-dumb-after works!</p>
+<ng-container *ngIf="company">
+
+    <!-- header not reusable because it is tied to "comapny" domain -->
+    <header [style.background-image]=" 'url(' + company.backgroundImageUrl + ')' ">
+        <div class="text">
+            <h1>{{ company.name }}</h1>
+            <h2>{{ company.tagline }}</h2>
+        </div>
+    </header>
+
+    <div class="text-block">
+        <h2>About Us</h2>
+        {{ company.aboutUs }}
+    </div>
+
+    <div class="video-block">
+        <iframe width="1280" height="720" [src]="company.youtubeUrl" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+
+    <!-- text-block HTML repeated several times; relies on shared css. Not reusable. -->
+    <div class="text-block">
+        <h2>Our Features</h2>
+        <p>
+            {{ company.features }}
+        </p>
+    </div>
+
+    <div class="text-block">
+        <h2>Market</h2>
+        <p>
+            {{ company.market }}
+        </p>
+    </div>
+
+    <!-- breaking single responsibility - team carousel is a separate concer, could become complex -->
+    <div class="team">
+        <div *ngFor="let team of company.teamMembers" class="member">
+            <img [src]="team.imageUrl">
+            <div class="name">
+                {{ team.name }}
+            </div>
+        </div>
+    </div>
+
+</ng-container>
