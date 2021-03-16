@@ -1,0 +1,12 @@
+<div class="collapsed" (click)="toggleCollapsed()">
+    <div class="heading">
+        {{ data.heading }}
+    </div>
+    <div class="icon" [style.color]="data.color">
+        <fa-icon [icon]="icons[data.icon]"></fa-icon>
+    </div>
+</div>
+
+<div *ngIf="open" class="content">
+    <ng-content></ng-content>
+</div>

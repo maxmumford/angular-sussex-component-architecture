@@ -1,0 +1,38 @@
+// public styling exposed via css variables, and encapsulated into this stylesheet
+::ng-deep {
+    :root {
+        --accordion-item-background-color: #e3e3e3;
+    }
+}
+
+:host {
+    display: block;
+    background-color: var(--accordion-item-background-color);
+    border-radius: 4px;
+}
+
+.collapsed {
+    padding: 24px;
+    display: flex;
+    cursor: pointer;
+    transition: background-color 250ms;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: #c7c7c7;
+    }
+
+    .heading {
+        flex: 1 1 auto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .icon {
+        flex: 0 0 auto;
+    }
+}
+
+.content {
+    padding: 24px;
+}
