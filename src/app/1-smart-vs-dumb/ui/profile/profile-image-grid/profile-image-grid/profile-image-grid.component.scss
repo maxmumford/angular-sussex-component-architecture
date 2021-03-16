@@ -1,0 +1,7 @@
+// single responsibility: styling only for grid wrapper
+:host {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 64px;
+}

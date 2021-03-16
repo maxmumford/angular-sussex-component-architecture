@@ -1,6 +1,6 @@
 export interface Company {
-    backgroundImageUrl: string;
-    youtubeUrl: any;
+    bannerUrl: string;
+    videoUrl: string;
     name: string;
     tagline: string;
     aboutUs: string;

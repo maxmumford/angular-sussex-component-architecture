@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CompanyService } from '../company/company.service';
 import { Company } from '../company/company.types';
 
@@ -11,15 +11,14 @@ import { Company } from '../company/company.types';
 export class SmartVsDumbBeforeComponent implements OnInit {
 
   company: Company | undefined;
+  youtubeUrl: SafeResourceUrl;
 
   constructor(private companyService: CompanyService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.companyService.getCompany().subscribe(company => {
-      this.company = {
-        ...company,
-        youtubeUrl: this.sanitizer.bypassSecurityTrustResourceUrl(company.youtubeUrl),
-      };
+      this.company = company;
+      this.youtubeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(company.videoUrl);
     });
   }
 

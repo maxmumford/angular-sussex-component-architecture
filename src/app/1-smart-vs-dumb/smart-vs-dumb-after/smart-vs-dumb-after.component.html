@@ -1,47 +1,29 @@
 <ng-container *ngIf="company">
 
-    <!-- header not reusable because it is tied to "comapny" domain -->
-    <header [style.background-image]=" 'url(' + company.backgroundImageUrl + ')' ">
-        <div class="text">
-            <h1>{{ company.name }}</h1>
-            <h2>{{ company.tagline }}</h2>
-        </div>
-    </header>
+    <!-- element names are more semantic -->
+    <app-profile-header [heading]="company.name" [subHeading]="company.tagline"
+        [backgroundImageUrl]="company.bannerUrl"></app-profile-header>
 
-    <div class="text-block">
-        <h2>About Us</h2>
+    <!-- no repeated HTML -->
+    <app-profile-text-block heading="About Us" class="about-us">
         {{ company.aboutUs }}
-    </div>
+    </app-profile-text-block>
 
-    <div class="video-block">
-        <iframe width="1280" height="720" [src]="company.youtubeUrl" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-    </div>
+    <app-profile-video [src]="videoUrlSafe"></app-profile-video>
 
-    <!-- text-block HTML repeated several times; relies on shared css. Not reusable. -->
-    <div class="text-block">
-        <h2>Our Features</h2>
-        <p>
-            {{ company.features }}
-        </p>
-    </div>
+    <!-- minimal repitition to re-use block -->
+    <app-profile-text-block heading="Our Features" class="features">
+        {{ company.features }}
+    </app-profile-text-block>
 
-    <div class="text-block">
-        <h2>Market</h2>
-        <p>
-            {{ company.market }}
-        </p>
-    </div>
+    <app-profile-text-block heading="Market" class="market">
+        {{ company.market }}
+    </app-profile-text-block>
 
     <!-- breaking single responsibility - team carousel is a separate concer, could become complex -->
-    <div class="team">
-        <div *ngFor="let team of company.teamMembers" class="member">
-            <img [src]="team.imageUrl">
-            <div class="name">
-                {{ team.name }}
-            </div>
-        </div>
-    </div>
+    <app-profile-image-grid>
+        <app-profile-image-grid-item *ngFor="let person of company.teamMembers" [label]="person.name" 
+            [imageUrl]="person.imageUrl"></app-profile-image-grid-item>
+    </app-profile-image-grid>
 
 </ng-container>

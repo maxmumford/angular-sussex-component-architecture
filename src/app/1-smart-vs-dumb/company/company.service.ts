@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
 import { Company } from './company.types';
 
 @Injectable({
@@ -12,8 +11,8 @@ export class CompanyService {
 
   getCompany(): Observable<Company> {
     return of({
-      backgroundImageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1652&q=80',
-      youtubeUrl: 'https://www.youtube.com/embed/xg9R4yykvqU',
+      bannerUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1652&q=80',
+      videoUrl: 'https://www.youtube.com/embed/xg9R4yykvqU',
       name: 'Mumford Tech',
       tagline: 'Fastest computery tech in the tech world',
       aboutUs: 'Saint Petersburg, the second-largest city in Russia, is situated at the head of the Gulf of Finland on the Baltic Sea. This photograph shows the eastern end of Vasilyevsky Island, known as the spit, surrounded by the river Neva. The Old Saint Petersburg Stock Exchange and Rostral Columns, built in the Greek Revival style in the first decade of the nineteenth century, is visible in the centre.',
@@ -25,8 +24,6 @@ export class CompanyService {
         { name: 'Amy Render', imageUrl: '/assets/images/people/3.jpg' },
         { name: 'Jane Smith', imageUrl: '/assets/images/people/4.jpg' },
       ]
-    }).pipe(
-      delay(500),
-    );
+    });
   }
 }

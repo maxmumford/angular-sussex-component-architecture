@@ -1,0 +1,11 @@
+// single responsibility: styling only for grid item
+img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.name {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 8px;
+}

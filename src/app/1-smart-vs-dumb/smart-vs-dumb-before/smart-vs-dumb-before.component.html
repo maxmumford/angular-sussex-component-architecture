@@ -1,7 +1,7 @@
 <ng-container *ngIf="company">
 
     <!-- header not reusable because it is tied to "comapny" domain -->
-    <header [style.background-image]=" 'url(' + company.backgroundImageUrl + ')' ">
+    <header [style.background-image]=" 'url(' + company.bannerUrl + ')' ">
         <div class="text">
             <h1>{{ company.name }}</h1>
             <h2>{{ company.tagline }}</h2>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="video-block">
-        <iframe width="1280" height="720" [src]="company.youtubeUrl" frameborder="0"
+        <iframe width="1280" height="720" [src]="youtubeUrl" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
     </div>
