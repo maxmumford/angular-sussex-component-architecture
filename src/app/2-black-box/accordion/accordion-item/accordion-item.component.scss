@@ -2,6 +2,7 @@
 ::ng-deep {
     :root {
         --accordion-item-background-color: #e3e3e3;
+        --accordion-item-hover-background-color: #c7c7c7;
     }
 }
 
@@ -19,7 +20,7 @@
     border-radius: 4px;
 
     &:hover {
-        background-color: #c7c7c7;
+        background-color: var(--accordion-item-hover-background-color);
     }
 
     .heading {
